@@ -53,7 +53,7 @@ function renderFeatured() {
   const grid = document.getElementById('featuredGrid');
   if (!grid) return;
 
-  const featured = products.filter((p) => [1, 2, 3].includes(p.id));
+  const featured = products.filter((p) => [1, 2, 7].includes(p.id));
   const texts = i18n[state.currentLang];
   grid.innerHTML = featured.map((p) => renderProductCard(p, texts)).join('');
 }
