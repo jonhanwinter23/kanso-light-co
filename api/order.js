@@ -12,6 +12,17 @@ const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map((s) => s.trim())
   : ['*'];
 
+function readRequestBody(req) {
+  return new Promise((resolve, reject) => {
+    let data = '';
+    req.on('data', (chunk) => {
+      data += chunk;
+    });
+    req.on('end', () => resolve(data));
+    req.on('error', reject);
+  });
+}
+
 function setCors(req, res) {
   const origin = req.headers.origin || '';
   if (ALLOWED_ORIGINS.includes('*') || ALLOWED_ORIGINS.includes(origin)) {
@@ -22,11 +33,12 @@ function setCors(req, res) {
 }
 
 async function sendTelegramMessage(token, chatId, text) {
-  const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const chatIdValue = String(chatId).trim();
+  const response = await fetch(`https://api.telegram.org/bot${token.trim()}/sendMessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      chat_id: chatId,
+      chat_id: chatIdValue,
       text,
       disable_web_page_preview: true,
     }),
@@ -67,6 +79,16 @@ module.exports = async (req, res) => {
   }
 
   let body = req.body;
+  if (body == null || body === '') {
+    const raw = await readRequestBody(req);
+    if (raw) {
+      try {
+        body = JSON.parse(raw);
+      } catch {
+        return res.status(400).json({ ok: false, error: 'Invalid JSON' });
+      }
+    }
+  }
   if (typeof body === 'string') {
     try {
       body = JSON.parse(body);
@@ -88,6 +110,10 @@ module.exports = async (req, res) => {
     return res.status(200).json({ ok: true });
   } catch (err) {
     console.error('Telegram send failed:', err.message);
-    return res.status(502).json({ ok: false, error: 'Failed to send to Telegram' });
+    return res.status(502).json({
+      ok: false,
+      error: 'Failed to send to Telegram',
+      detail: err.message,
+    });
   }
 };

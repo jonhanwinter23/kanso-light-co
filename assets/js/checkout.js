@@ -156,6 +156,7 @@ async function postOrderToServer(message, honeypot) {
   if (!response.ok || !data.ok) {
     const err = new Error(data.error || 'REQUEST_FAILED');
     err.code = response.status;
+    err.detail = data.detail;
     throw err;
   }
 }
@@ -227,6 +228,8 @@ async function submitOrderToTelegram(event) {
       errorEl.classList.remove('hidden');
       if (err.message === 'NO_API' || err.code === 503) {
         errorEl.textContent = t.checkoutNotConfigured;
+      } else if (err.code === 502 && err.detail) {
+        errorEl.textContent = `${t.checkoutError}\n(${err.detail})`;
       } else {
         errorEl.textContent = t.checkoutError;
       }

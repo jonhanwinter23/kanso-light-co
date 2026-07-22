@@ -114,4 +114,21 @@ const products = [
       en: 'Specifically calibrated flicker-free warm LED bulbs selected to give off the ideal cozy, golden-hour light temperature.',
     },
   },
+  {
+    id: 7,
+    name: { km: 'Kanso Minimalist Fan', en: 'Kanso Minimalist Fan' },
+    category: 'table',
+    tags: ['table', 'japandi'],
+    price: 18.0,
+    badge: { km: 'ម៉ូដថ្មី', en: 'New' },
+    image: 'Image/kanso-minimalist-fan.jpg',
+    specs: {
+      km: 'រចនាបែប Minimalist • ពណ៌ត្នោត & ស',
+      en: 'Minimalist studio design • Brown & white finish',
+    },
+    desc: {
+      km: 'ករណី Kansō Minimalist Fan រចនាសម្រាប់លំហស្ងាត់ — បញ្ចូលគ្នាល្អជាមួយពន្លឺក្តៅ Kansō របស់អ្នក។',
+      en: 'The Kansō Minimalist Fan — clean studio styling that pairs with warm ambient lighting and calm Japandi corners.',
+    },
+  },
 ];
