@@ -57,6 +57,7 @@ const i18n = {
     contactDesc:
       'យើងឆ្លើយតបតាម Telegram និង Instagram ក្នុងម៉ោងធ្វើការ។ ដឹកជញ្ជូនឥតគិតថ្លៃក្នុងថ្ងៃតែមួយទូទាំងភ្នំពេញ។',
     addBag: '+ បន្ថែមទៅកន្ត្រក',
+    cardTapHint: 'ចុចដើម្បីបន្ថែមកន្ត្រក →',
     emptyCartMsg: 'កន្ត្រករបស់អ្នកមិនទាន់មានទំនិញនៅឡើយទេ។',
     emptyCartSub: 'ស្វែងរកអំពូលប្រណិតៗដើម្បីបន្ថែមភាពកក់ក្តៅដល់គេហដ្ឋានរបស់អ្នក។',
     drawerTitle: 'កន្ត្រកទំនិញរបស់អ្នក',
@@ -178,6 +179,7 @@ const i18n = {
     contactDesc:
       'We reply on Telegram and Instagram during business hours. Free same-day delivery across Phnom Penh.',
     addBag: '+ Add to Bag',
+    cardTapHint: 'Tap card to add →',
     emptyCartMsg: 'Your bag is currently empty.',
     emptyCartSub: 'Explore our collection to add ambient warmth to your home.',
     drawerTitle: 'Your Bag',

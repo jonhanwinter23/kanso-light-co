@@ -27,6 +27,15 @@ body {
   font-weight: 600;
 }
 
+.product-card:focus-visible {
+  outline: 2px solid #C86D51;
+  outline-offset: 2px;
+}
+
+.quick-view-details {
+  color: #fff;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

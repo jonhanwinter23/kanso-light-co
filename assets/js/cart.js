@@ -11,6 +11,14 @@ function addToCart(id) {
   showToast(`${i18n[state.currentLang].toastAdded}: "${item.name[state.currentLang]}"`);
 }
 
+function addToCartAndOpenDrawer(id) {
+  addToCart(id);
+  const drawer = document.getElementById('cartDrawer');
+  if (drawer?.classList.contains('opacity-0')) {
+    toggleCart();
+  }
+}
+
 function removeFromCart(id) {
   state.cart = state.cart.filter((c) => c.id !== id);
   saveCartToStorage();

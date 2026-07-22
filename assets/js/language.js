@@ -8,7 +8,7 @@ function applyLanguage() {
 
   Object.keys(texts).forEach((key) => {
     if (key.startsWith('alert') && key !== 'alertOk') return;
-    if (['remove', 'quickAdd', 'freeBulb', 'sameDay', 'emptyCartCheckout', 'checkoutCountLabel', 'checkoutSending', 'checkoutSuccess', 'checkoutError', 'checkoutNotConfigured', 'checkoutTelegramHint', 'checkoutTelegramHintCopied'].includes(key)) return;
+    if (['remove', 'quickAdd', 'freeBulb', 'sameDay', 'emptyCartCheckout', 'checkoutCountLabel', 'checkoutSending', 'checkoutSuccess', 'checkoutError', 'checkoutNotConfigured', 'checkoutTelegramHint', 'checkoutTelegramHintCopied', 'cardTapHint'].includes(key)) return;
     setText(key, texts[key]);
   });
 

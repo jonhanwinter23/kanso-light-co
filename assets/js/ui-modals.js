@@ -8,28 +8,28 @@ function openQuickView(id) {
 
   const t = i18n[state.currentLang];
   content.innerHTML = `
-    <div class="rounded-xl overflow-hidden bg-stone-200 h-64 sm:h-full">
+    <div class="rounded-xl overflow-hidden bg-stone-200 h-64 sm:h-full min-h-[16rem]">
       <img src="${p.image}" alt="${p.name[state.currentLang]}" class="w-full h-full object-cover">
     </div>
-    <div class="flex flex-col justify-between space-y-4">
+    <div class="quick-view-details flex flex-col justify-between space-y-4 rounded-xl bg-kanso-dark text-white p-4 sm:p-5">
       <div>
-        <span class="text-xs text-kanso-terracotta uppercase font-bold tracking-wider">${p.specs[state.currentLang]}</span>
-        <h3 class="text-xl sm:text-2xl font-bold text-kanso-dark mt-1">${p.name[state.currentLang]}</h3>
-        <p class="text-xl sm:text-2xl font-semibold text-kanso-dark mt-2">$${p.price.toFixed(2)}</p>
-        <p class="text-xs text-kanso-muted mt-3 leading-relaxed">${p.desc[state.currentLang]}</p>
-        <div class="mt-4 p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 space-y-1">
-          <p class="font-bold">✓ ${t.freeBulb}</p>
+        <span class="text-xs text-amber-200/90 uppercase font-bold tracking-wider">${p.specs[state.currentLang]}</span>
+        <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">${p.name[state.currentLang]}</h3>
+        <p class="text-xl sm:text-2xl font-semibold text-white mt-2">$${p.price.toFixed(2)}</p>
+        <p class="text-xs text-stone-300 mt-3 leading-relaxed">${p.desc[state.currentLang]}</p>
+        <div class="mt-4 p-3 rounded-lg bg-white/10 border border-white/15 text-xs text-stone-100 space-y-1">
+          <p class="font-bold text-white">✓ ${t.freeBulb}</p>
           <p>✓ ${t.sameDay}</p>
         </div>
       </div>
-      <button type="button" id="quickViewAddBtn" data-id="${p.id}" class="w-full bg-kanso-dark hover:bg-kanso-terracotta text-white py-3 rounded-xl font-bold transition text-xs sm:text-sm">
+      <button type="button" id="quickViewAddBtn" data-id="${p.id}" class="w-full bg-white hover:bg-amber-100 text-kanso-dark py-3 rounded-xl font-bold transition text-xs sm:text-sm">
         ${t.quickAdd} • $${p.price.toFixed(2)}
       </button>
     </div>`;
 
   modal.classList.remove('hidden');
   document.getElementById('quickViewAddBtn')?.addEventListener('click', () => {
-    addToCart(p.id);
+    addToCartAndOpenDrawer(p.id);
     closeQuickView();
   });
 }

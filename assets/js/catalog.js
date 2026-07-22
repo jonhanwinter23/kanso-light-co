@@ -1,23 +1,22 @@
 function renderProductCard(p, texts) {
   return `
-    <div class="group bg-kanso-card rounded-2xl overflow-hidden border border-kanso-border/70 hover:border-kanso-terracotta transition duration-300 shadow-sm hover:shadow-md flex flex-col">
-      <div class="w-full h-72 bg-stone-200 overflow-hidden relative">
+    <div data-product-card="${p.id}" class="product-card group bg-kanso-card rounded-2xl overflow-hidden border border-kanso-border/70 hover:border-kanso-terracotta transition duration-300 shadow-sm hover:shadow-md flex flex-col cursor-pointer" role="button" tabindex="0" aria-label="${p.name[state.currentLang]}">
+      <div class="w-full h-72 bg-stone-200 overflow-hidden relative pointer-events-none">
         <img src="${p.image}" alt="${p.name[state.currentLang]}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
         ${
           p.badge[state.currentLang]
             ? `<span class="absolute top-3 left-3 bg-kanso-dark text-kanso-bg text-[10px] font-bold px-2.5 py-1 rounded-md">${p.badge[state.currentLang]}</span>`
             : ''
         }
-        <button type="button" data-quick-view="${p.id}" class="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-kanso-dark p-2 rounded-full shadow-md backdrop-blur-sm transition" title="Quick View">🔍</button>
       </div>
-      <div class="p-5 flex-1 flex flex-col justify-between">
+      <div class="p-5 flex-1 flex flex-col justify-between pointer-events-none">
         <div>
           <p class="text-xs text-kanso-muted mb-1">${p.specs[state.currentLang]}</p>
           <h3 class="font-bold text-base text-kanso-dark group-hover:text-kanso-terracotta transition">${p.name[state.currentLang]}</h3>
         </div>
-        <div class="mt-4 pt-3 border-t border-kanso-border/60 flex items-center justify-between">
+        <div class="mt-4 pt-3 border-t border-kanso-border/60 flex items-center justify-between gap-2">
           <span class="text-lg font-bold text-kanso-dark">$${p.price.toFixed(2)}</span>
-          <button type="button" data-add-cart="${p.id}" class="bg-kanso-dark hover:bg-kanso-terracotta text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">${texts.addBag}</button>
+          <span class="text-[10px] sm:text-xs font-semibold text-kanso-muted group-hover:text-kanso-terracotta transition">${texts.cardTapHint}</span>
         </div>
       </div>
     </div>`;
@@ -101,12 +100,23 @@ function initCatalogFromUrl() {
 
 function bindCatalogActions(root = document) {
   root.addEventListener('click', (e) => {
-    const addBtn = e.target.closest('[data-add-cart]');
-    if (addBtn) {
-      addToCart(Number(addBtn.dataset.addCart));
+    const qvBtn = e.target.closest('[data-quick-view]');
+    if (qvBtn) {
+      e.stopPropagation();
+      openQuickView(Number(qvBtn.dataset.quickView));
       return;
     }
-    const qvBtn = e.target.closest('[data-quick-view]');
-    if (qvBtn) openQuickView(Number(qvBtn.dataset.quickView));
+    const card = e.target.closest('[data-product-card]');
+    if (card) {
+      addToCartAndOpenDrawer(Number(card.dataset.productCard));
+    }
+  });
+
+  root.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const card = e.target.closest('[data-product-card]');
+    if (!card) return;
+    e.preventDefault();
+    addToCartAndOpenDrawer(Number(card.dataset.productCard));
   });
 }

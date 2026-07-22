@@ -155,8 +155,8 @@ function renderOverlays() {
     </div>
   </div>
   <div id="quickModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-    <div class="bg-kanso-bg rounded-2xl max-w-2xl w-full p-6 relative overflow-hidden shadow-2xl border border-kanso-border max-h-[90vh] overflow-y-auto">
-      <button type="button" data-action="close-quick" class="absolute top-4 right-4 text-2xl text-kanso-muted hover:text-kanso-dark z-10">&times;</button>
+    <div class="bg-kanso-dark rounded-2xl max-w-2xl w-full p-6 relative overflow-hidden shadow-2xl border border-stone-600 max-h-[90vh] overflow-y-auto">
+      <button type="button" data-action="close-quick" class="absolute top-4 right-4 text-2xl text-white/80 hover:text-white z-10">&times;</button>
       <div id="quickModalContent" class="grid sm:grid-cols-2 gap-6"></div>
     </div>
   </div>
