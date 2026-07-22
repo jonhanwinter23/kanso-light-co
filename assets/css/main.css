@@ -1,0 +1,50 @@
+body {
+  background-color: #FBF9F5;
+  color: #2B2B2B;
+  font-family: 'Kantumruy Pro', 'Outfit', sans-serif;
+}
+
+.ambient-room {
+  transition: background-color 0.6s ease, filter 0.6s ease;
+}
+
+.night-mode {
+  background-color: #1a1816 !important;
+  color: #f4f0e8 !important;
+}
+
+.glow-effect {
+  box-shadow: 0 0 50px 15px rgba(230, 180, 100, 0.35);
+  transition: box-shadow 0.5s ease;
+}
+
+.night-mode .glow-effect {
+  box-shadow: 0 0 80px 30px rgba(255, 190, 110, 0.55);
+}
+
+.nav-link-active {
+  color: #C86D51;
+  font-weight: 600;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1ECE4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C2BBAF;
+  border-radius: 3px;
+}

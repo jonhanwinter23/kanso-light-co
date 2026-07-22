@@ -1,0 +1,7 @@
+{
+  "name": "kanso-light-co",
+  "private": true,
+  "scripts": {
+    "dev": "node server/dev-server.js"
+  }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="km" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KANSŌ Light Co. | Shop</title>
+  <script src="assets/js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="shop" class="bg-kanso-bg text-kanso-dark min-h-screen flex flex-col antialiased">
+
+  <div id="site-banner"></div>
+  <div id="site-header"></div>
+
+  <main class="flex-1">
+    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-widest text-kanso-terracotta uppercase" id="catHeaderSub"></span>
+          <h1 class="text-2xl sm:text-3xl font-light text-kanso-dark" id="catHeaderTitle"></h1>
+        </div>
+        <div class="text-xs text-kanso-muted">
+          <span id="showingText"></span> <span id="productCount" class="font-bold text-kanso-dark">6</span> <span id="showingSuffix"></span>
+        </div>
+      </div>
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="site-overlays"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/catalog.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/checkout.js"></script>
+  <script src="assets/js/ui-modals.js"></script>
+  <script src="assets/js/ambient.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

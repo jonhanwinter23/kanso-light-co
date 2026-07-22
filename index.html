@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="km" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KANSŌ Light Co. | Home</title>
+  <script src="assets/js/tailwind-config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="home" class="bg-kanso-bg text-kanso-dark min-h-screen flex flex-col antialiased">
+
+  <div id="site-banner"></div>
+  <div id="site-header"></div>
+
+  <main class="flex-1">
+    <section class="relative bg-[#F2EDE4] py-12 md:py-20 border-b border-kanso-border overflow-hidden transition-colors duration-500" id="heroSection">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-[#E6DFC2]/60 px-3 py-1 rounded-full text-xs text-kanso-dark font-medium border border-[#D9CFA7]">
+            <span>✨</span>
+            <span id="heroTag"></span>
+          </div>
+          <h1 class="text-2xl sm:text-4xl md:text-5xl font-light leading-snug sm:leading-tight tracking-tight text-kanso-dark" id="heroTitle"></h1>
+          <p class="text-kanso-muted text-sm sm:text-base max-w-xl font-normal leading-relaxed" id="heroDesc"></p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="catalog.html" class="bg-kanso-dark text-kanso-bg px-7 py-3.5 rounded-xl text-sm font-medium hover:bg-kanso-terracotta transition shadow-md flex items-center gap-2">
+              <span id="heroCta1"></span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <button type="button" data-quick-view="1" id="heroCta2" class="border border-kanso-dark/30 hover:border-kanso-dark px-6 py-3.5 rounded-xl text-xs sm:text-sm font-medium transition"></button>
+          </div>
+        </div>
+        <div class="md:col-span-5 relative">
+          <div class="relative mx-auto max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80 bg-stone-200 group">
+            <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80" alt="Kanso table lamp" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition duration-700">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl border border-white/50 shadow-lg flex items-center justify-between">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-kanso-terracotta" id="heroBadgeLabel"></p>
+                <p class="text-xs sm:text-sm font-bold text-kanso-dark" id="heroBadgeTitle"></p>
+              </div>
+              <span class="text-xs sm:text-sm font-bold text-kanso-dark bg-kanso-card px-3 py-1 rounded-lg border border-kanso-border">$29.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 bg-[#FAF6F0] border-b border-kanso-border">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <span class="text-xs uppercase font-bold tracking-widest text-kanso-terracotta block mb-1" id="simSub"></span>
+        <h2 class="text-xl sm:text-3xl font-light mb-2" id="simTitle"></h2>
+        <p class="text-kanso-muted text-xs sm:text-sm max-w-xl mx-auto mb-8" id="simDesc"></p>
+        <div id="interactiveRoom" class="max-w-3xl mx-auto h-72 sm:h-80 rounded-3xl relative overflow-hidden bg-stone-300 border border-stone-300 shadow-inner flex items-center justify-center transition-all duration-700">
+          <div class="absolute inset-0 bg-cover bg-center opacity-90" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80')"></div>
+          <div id="roomOverlay" class="absolute inset-0 bg-black/10 transition-colors duration-700"></div>
+          <div class="relative z-10 text-center">
+            <div id="virtualLamp" class="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-amber-100 flex items-center justify-center text-3xl shadow-lg cursor-pointer transform hover:scale-110 transition duration-300 glow-effect">💡</div>
+            <div class="mt-4 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full inline-block text-xs font-medium text-kanso-dark shadow">
+              <span id="lampInstruction"></span> <span id="lampStateText" class="font-bold text-kanso-terracotta"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-10 border-b border-kanso-border bg-kanso-bg">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-sm">
+        <div class="p-4 rounded-2xl bg-kanso-card border border-kanso-border/60">
+          <div class="text-2xl mb-2">⚡</div>
+          <h3 class="font-semibold text-kanso-dark mb-1 text-xs sm:text-sm" id="badge1Title"></h3>
+          <p class="text-[11px] sm:text-xs text-kanso-muted" id="badge1Desc"></p>
+        </div>
+        <div class="p-4 rounded-2xl bg-kanso-card border border-kanso-border/60">
+          <div class="text-2xl mb-2">💡</div>
+          <h3 class="font-semibold text-kanso-dark mb-1 text-xs sm:text-sm" id="badge2Title"></h3>
+          <p class="text-[11px] sm:text-xs text-kanso-muted" id="badge2Desc"></p>
+        </div>
+        <div class="p-4 rounded-2xl bg-kanso-card border border-kanso-border/60">
+          <div class="text-2xl mb-2">🔍</div>
+          <h3 class="font-semibold text-kanso-dark mb-1 text-xs sm:text-sm" id="badge3Title"></h3>
+          <p class="text-[11px] sm:text-xs text-kanso-muted" id="badge3Desc"></p>
+        </div>
+        <div class="p-4 rounded-2xl bg-kanso-card border border-kanso-border/60">
+          <div class="text-2xl mb-2">🛡️</div>
+          <h3 class="font-semibold text-kanso-dark mb-1 text-xs sm:text-sm" id="badge4Title"></h3>
+          <p class="text-[11px] sm:text-xs text-kanso-muted" id="badge4Desc"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-widest text-kanso-terracotta uppercase" id="featuredSub"></span>
+          <h2 class="text-2xl sm:text-3xl font-light text-kanso-dark" id="featuredTitle"></h2>
+        </div>
+        <a href="catalog.html" class="text-sm font-medium text-kanso-terracotta hover:underline" id="featuredLink"></a>
+      </div>
+      <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="site-overlays"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/language.js"></script>
+  <script src="assets/js/catalog.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/checkout.js"></script>
+  <script src="assets/js/ui-modals.js"></script>
+  <script src="assets/js/ambient.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

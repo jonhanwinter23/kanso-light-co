@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/api/order", "destination": "/api/order.js" }]
+}

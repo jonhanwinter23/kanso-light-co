@@ -1,0 +1,47 @@
+KANSŌ — Telegram order bot setup
+================================
+
+Customers submit the form on your website. Orders go straight to YOUR Telegram.
+They do NOT need Telegram and do NOT send from their account.
+
+Step 1 — Create a bot
+-------------------
+1. Open Telegram and message @BotFather
+2. Send /newbot and follow the prompts
+3. Copy the bot token (looks like 123456789:ABCdef...)
+
+Step 2 — Get your Chat ID
+-------------------------
+1. Open your new bot in Telegram and tap Start (send /start)
+2. Visit in a browser (replace TOKEN with your bot token):
+   https://api.telegram.org/botTOKEN/getUpdates
+3. Find "chat":{"id": NUMBER ...} — that NUMBER is TELEGRAM_CHAT_ID
+   (Often starts with 6 or 7 digits for personal accounts)
+
+Step 3 — Configure secrets (never put the token in the website JS)
+-------------------------------------------------------------------
+Create a file named .env in the Kanso folder:
+
+TELEGRAM_BOT_TOKEN=your_token_here
+TELEGRAM_CHAT_ID=your_chat_id_here
+
+Optional:
+ORDER_API_SECRET=some_long_random_string
+
+Step 4 — Run locally
+--------------------
+npm install   (optional — dev server uses Node only)
+npm run dev
+
+Open http://localhost:3000
+
+Step 5 — Deploy (Vercel, free)
+------------------------------
+1. Push this project to GitHub
+2. Import at vercel.com
+3. Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in Project → Settings → Environment Variables
+4. Deploy
+5. In assets/js/config.js set:
+   KANSO_ORDER_API_URL = 'https://YOUR-PROJECT.vercel.app/api/order'
+
+Your shop phone +85566599288 is only for customers to call — orders arrive via the bot.
