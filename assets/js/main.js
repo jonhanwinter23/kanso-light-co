@@ -13,6 +13,7 @@ function initSite() {
   updateCartUI();
 
   if (page === 'home') {
+    initHeroProduct(7);
     renderFeatured();
     document.querySelectorAll('[data-quick-view]').forEach((btn) => {
       btn.addEventListener('click', () => openQuickView(Number(btn.dataset.quickView)));

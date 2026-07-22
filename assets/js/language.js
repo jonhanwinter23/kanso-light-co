@@ -47,6 +47,10 @@ function applyLanguage() {
 
   setText('checkoutTotalLabel', texts.totalText);
 
+  if (document.body.dataset.page === 'home') {
+    initHeroProduct(7);
+  }
+
   document.documentElement.lang = state.currentLang;
 }
 

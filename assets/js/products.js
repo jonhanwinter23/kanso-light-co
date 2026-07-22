@@ -118,7 +118,7 @@ const products = [
     id: 7,
     name: { km: 'Kanso Minimalist Fan', en: 'Kanso Minimalist Fan' },
     category: 'table',
-    tags: ['table', 'japandi'],
+    tags: ['table', 'japandi', 'fan'],
     price: 18.0,
     badge: { km: 'ម៉ូដថ្មី', en: 'New' },
     image: 'Image/kanso-minimalist-fan.jpg',

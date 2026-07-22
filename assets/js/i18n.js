@@ -21,9 +21,9 @@ const i18n = {
     heroDesc:
       'KANSŌ ឌីហ្សាញ និងជ្រើសរើសអំពូលតុ និងអំពូលឈរពន្លឺក្តៅបែបសម្រួលអារម្មណ៍ ដើម្បីប្រែក្លាយជ្រុងផ្ទះធម្មតាឱ្យទៅជាលំហដ៏កក់ក្តៅ និងស្ងប់ស្ងាត់។',
     heroCta1: 'មើលផលិតផលទាំងអស់',
-    heroCta2: 'មើលអំពូលលក់ដាច់គេ ($29)',
+    heroCta2: 'មើល Kanso Minimalist Fan ($18)',
     heroBadgeLabel: 'ផលិតផលឆ្នើម',
-    heroBadgeTitle: 'អំពូលតុ Kiri Classic',
+    heroBadgeTitle: 'Kanso Minimalist Fan',
     featuredSub: 'ជ្រើសរើសពិសេស',
     featuredTitle: 'អំពូលលក់ដាច់',
     featuredLink: 'មើលកាតាឡុកពេញ →',
@@ -143,9 +143,9 @@ const i18n = {
     heroDesc:
       'KANSŌ designs and curates understated, warm ambient table and floor lamps created to turn ordinary living corners into cozy, peaceful sanctuaries.',
     heroCta1: 'Explore Collection',
-    heroCta2: 'View Signature Lamp ($29)',
+    heroCta2: 'View Kanso Minimalist Fan ($18)',
     heroBadgeLabel: 'Featured Piece',
-    heroBadgeTitle: 'The Kiri Classic Table Lamp',
+    heroBadgeTitle: 'Kanso Minimalist Fan',
     featuredSub: 'Curated picks',
     featuredTitle: 'Customer favorites',
     featuredLink: 'View full catalog →',

@@ -45,16 +45,39 @@ function renderCatalog() {
   if (countEl) countEl.textContent = String(filtered.length);
 
   const texts = i18n[state.currentLang];
-  grid.innerHTML = filtered.map((p) => renderProductCard(p, texts)).join('');
+  grid.innerHTML = filtered
+    .slice()
+    .sort((a, b) => (a.id === 7 ? -1 : b.id === 7 ? 1 : 0))
+    .map((p) => renderProductCard(p, texts))
+    .join('');
 }
 
 function renderFeatured() {
   const grid = document.getElementById('featuredGrid');
   if (!grid) return;
 
-  const featured = products.filter((p) => [1, 2, 7].includes(p.id));
+  const featured = products.filter((p) => [7, 1, 2].includes(p.id));
   const texts = i18n[state.currentLang];
   grid.innerHTML = featured.map((p) => renderProductCard(p, texts)).join('');
+}
+
+function initHeroProduct(productId = 7) {
+  const p = products.find((x) => x.id === productId);
+  if (!p) return;
+
+  const img = document.getElementById('heroImage');
+  if (img) {
+    img.src = p.image;
+    img.alt = p.name[state.currentLang];
+  }
+
+  const priceEl = document.getElementById('heroPrice');
+  if (priceEl) priceEl.textContent = `$${p.price.toFixed(2)}`;
+
+  const qvBtn = document.getElementById('heroCta2');
+  if (qvBtn) qvBtn.dataset.quickView = String(p.id);
+
+  setText('heroBadgeTitle', p.name[state.currentLang]);
 }
 
 function setCategory(cat, options = {}) {
